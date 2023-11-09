@@ -6,7 +6,7 @@ import { BufferMemory } from 'langchain/memory'
 import express from 'express'
 import cors from 'cors'
 
-const SERVER_PORT = process.env.PORT || 80
+const SERVER_PORT = process.env.PORT || 3001
 
 const app = express()
 app.use(express.json())
@@ -47,6 +47,11 @@ const chain = new ConversationChain({
   memory: memory,
   maxTokens: 100
 })
+
+app.get('/hi', async (req, res) => {
+  res.send("Hiii")
+})
+
 
 app.post('/chat', async (req, res) => {
   const input = req.body.input
