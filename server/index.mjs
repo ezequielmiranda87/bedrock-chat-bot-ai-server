@@ -6,7 +6,7 @@ import { BufferMemory } from 'langchain/memory'
 import express from 'express'
 import cors from 'cors'
 
-const SERVER_PORT=3000
+SERVER_PORT = process.env.PORT || 80
 
 const app = express()
 app.use(express.json())
